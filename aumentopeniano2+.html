@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aumento Peniano 20+</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .app-container {
+            max-width: 414px;
+            margin: 0 auto;
+            background: #2a2a2a;
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6600, #ff9900);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .screen {
+            display: none;
+            padding: 20px;
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+
+        .screen.active {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .welcome-screen {
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .hero-image {
+            width: 280px;
+            height: 320px;
+            background: linear-gradient(45deg, #ff6600, #333333);
+            border-radius: 20px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #ff6600, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 40px;
+            line-height: 1.4;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6600, #ff9900);
+            border: none;
+            padding: 18px 40px;
+            border-radius: 30px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 102, 0, 0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 102, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #ff6600;
+            padding: 12px 25px;
+            border-radius: 25px;
+            color: #ff6600;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #ff6600;
+            color: #fff;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ff6600;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .exercise-card {
+            background: linear-gradient(135deg, rgba(51, 51, 51, 0.3), rgba(255, 102, 0, 0.1));
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 102, 0, 0.2);
+        }
+
+        .exercise-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff6600;
+            margin-bottom: 10px;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 414px;
+            background: rgba(42, 42, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+
+        .nav-item.active {
+            opacity: 1;
+            color: #ff6600;
+        }
+
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 5px;
+            fill: currentColor;
+        }
+
+        .nav-text {
+            font-size: 12px;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(255, 102, 0, 0.1), rgba(255, 153, 0, 0.1));
+            border-left: 4px solid #ff6600;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .day-schedule {
+            background: rgba(51, 51, 51, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #ff6600;
+        }
+
+        .testimonial {
+            background: rgba(255, 102, 0, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 102, 0, 0.2);
+        }
+
+        .progress-indicator {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .progress-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: conic-gradient(#ff6600 0deg, #ff6600 120deg, rgba(255,255,255,0.1) 120deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: bold;
+        }
+
+        // Remove btn-video styles and handlers
+        .btn-video {
+            display: none;
+        }
+
+        .result-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #333, #666);
+            border-radius: 15px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- Tela de Boas-vindas -->
+        <div class="screen active" id="welcome">
+            <div class="welcome-screen">
+                <div class="hero-image">
+                    <div>
+                        💪<br>
+                        MASCULINIDADE<br>
+                        & CONFIANÇA
+                    </div>
+                </div>
+                <h1 class="main-title">AUMENTO PENIANO 20+</h1>
+                <p class="subtitle">Descubra técnicas naturais e seguras para aumentar sua confiança e bem-estar masculino</p>
+                <button class="btn-primary" onclick="showScreen('intro')">INICIAR</button>
+            </div>
+        </div>
+
+        <!-- Introdução -->
+        <div class="screen" id="intro">
+            <h2 class="section-title">Bem-vindo ao Programa</h2>
+            <div class="content-card">
+                <p>Você está prestes a descobrir métodos naturais e seguros para melhorar sua saúde e confiança masculina.</p>
+                <br>
+                <p>Este programa foi desenvolvido com base em conhecimentos de anatomia e exercícios específicos focados no bem-estar masculino.</p>
+                <br>
+                <div class="warning-box">
+                    <strong>⚠️ IMPORTANTE:</strong> Sempre consulte um médico antes de iniciar qualquer programa de exercícios. Este conteúdo é apenas educacional.
+                </div>
+            </div>
+            <button class="btn-secondary" onclick="showScreen('anatomy')">PRÓXIMO</button>
+            <button class="btn-secondary" onclick="showScreen('welcome')">VOLTAR</button>
+        </div>
+
+        <!-- Anatomia -->
+        <div class="screen" id="anatomy">
+            <h2 class="section-title">Como Funciona</h2>
+            <div class="content-card">
+                <h3 style="color: #ff6600; margin-bottom: 15px;">Anatomia Básica</h3>
+                <p>O órgão masculino é composto por tecidos que podem responder a exercícios específicos quando realizados de forma consistente e segura.</p>
+                <br>
+                <h3 style="color: #ff6600; margin-bottom: 15px;">Tipos de Exercícios</h3>
+                <ul style="padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Exercícios de Kegel:</strong> Fortalecem o assoalho pélvico</li>
+                    <li><strong>Alongamentos:</strong> Melhoram flexibilidade</li>
+                    <li><strong>Exercícios de circulação:</strong> Promovem fluxo sanguíneo</li>
+                </ul>
+                <br>
+            </div>
+            <button class="btn-secondary" onclick="showScreen('exercises')">PRÓXIMO</button>
+            <button class="btn-secondary" onclick="showScreen('intro')">VOLTAR</button>
+        </div>
+
+        <!-- Exercícios -->
+        <div class="screen" id="exercises">
+            <h2 class="section-title">Rotina de Exercícios</h2>
+            
+            <div class="day-schedule">
+                <h3 style="color: #ff6600;">Segunda-feira - Iniciante</h3>
+                <div class="exercise-card">
+                    <div class="exercise-title">Exercícios de Kegel</div>
+                    <p>Contraia os músculos do assoalho pélvico por 3 segundos, relaxe por 3 segundos. Repita 10 vezes.</p>
+                </div>
+            </div>
+
+            <div class="day-schedule">
+                <h3 style="color: #ff6600;">Terça-feira - Alongamento</h3>
+                <div class="exercise-card">
+                    <div class="exercise-title">Alongamento Básico</div>
+                    <p>Exercícios suaves de alongamento focados na região pélvica. Duração: 5-10 minutos.</p>
+                </div>
+            </div>
+
+            <div class="day-schedule">
+                <h3 style="color: #ff6600;">Quarta-feira - Descanso</h3>
+                <p style="text-align: center; opacity: 0.7;">Dia de recuperação e descanso</p>
+            </div>
+
+            <button class="btn-secondary" onclick="showScreen('results')">PRÓXIMO</button>
+            <button class="btn-secondary" onclick="showScreen('anatomy')">VOLTAR</button>
+        </div>
+
+        <!-- Resultados -->
+        <div class="screen" id="results">
+            <h2 class="section-title">Resultados Esperados</h2>
+            
+            <div class="progress-indicator">
+                <div class="progress-circle">30d</div>
+                <p>Primeiros 30 dias: Melhora na circulação e sensibilidade</p>
+            </div>
+
+            <div class="progress-indicator">
+                <div class="progress-circle">60d</div>
+                <p>60 dias: Fortalecimento muscular e maior controle</p>
+            </div>
+
+            <div class="progress-indicator">
+                <div class="progress-circle">90d</div>
+                <p>90 dias: Resultados mais visíveis e duradouros</p>
+            </div>
+
+            <div class="result-image">
+                Gráfico de Progresso
+                (Imagem ilustrativa)
+            </div>
+
+            <button class="btn-secondary" onclick="showScreen('tips')">PRÓXIMO</button>
+            <button class="btn-secondary" onclick="showScreen('exercises')">VOLTAR</button>
+        </div>
+
+        <!-- Dicas -->
+        <div class="screen" id="tips">
+            <h2 class="section-title">Dicas Extras</h2>
+            
+            <div class="content-card">
+                <h3 style="color: #ff6600;">Alimentação</h3>
+                <p>Mantenha uma dieta rica em proteínas, zinco e vitaminas. Evite excesso de açúcar e gorduras saturadas.</p>
+            </div>
+
+            <div class="content-card">
+                <h3 style="color: #ff6600;">Sono</h3>
+                <p>Durma pelo menos 7-8 horas por dia. O descanso é fundamental para a recuperação muscular.</p>
+            </div>
+
+            <div class="content-card">
+                <h3 style="color: #ff6600;">Hidratação</h3>
+                <p>Beba pelo menos 2 litros de água por dia para manter boa circulação sanguínea.</p>
+            </div>
+
+            <button class="btn-secondary" onclick="showScreen('warnings')">PRÓXIMO</button>
+            <button class="btn-secondary" onclick="showScreen('results')">VOLTAR</button>
+        </div>
+
+        <!-- Avisos -->
+        <div class="screen" id="warnings">
+            <h2 class="section-title">Cuidados Importantes</h2>
+            
+            <div class="warning-box">
+                <h3>⚠️ Prevenção de Lesões</h3>
+                <p>Nunca force além do confortável. Pare imediatamente se sentir dor.</p>
+            </div>
+
+            <div class="warning-box">
+                <h3>⏰ Tempo de Descanso</h3>
+                <p>Respeite os dias de descanso. O corpo precisa de tempo para se recuperar.</p>
+            </div>
+
+            <div class="warning-box">
+                <h3>🏥 Aviso Médico</h3>
+                <p>Consulte sempre um urologista antes de iniciar qualquer programa. Este conteúdo não substitui orientação médica profissional.</p>
+            </div>
+
+            <button class="btn-secondary" onclick="showScreen('testimonials')">PRÓXIMO</button>
+            <button class="btn-secondary" onclick="showScreen('tips')">VOLTAR</button>
+        </div>
+
+        <!-- Depoimentos -->
+        <div class="screen" id="testimonials">
+            <h2 class="section-title">Depoimentos</h2>
+            
+            <div class="testimonial">
+                <p><strong>João, 28 anos:</strong></p>
+                <p>"Programa muito bem estruturado. Me sinto mais confiante após 2 meses seguindo as orientações."</p>
+                <div style="color: #ff6600; margin-top: 10px;">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <div class="testimonial">
+                <p><strong>Carlos, 35 anos:</strong></p>
+                <p>"Os exercícios são simples de seguir. Recomendo a consulta médica antes de começar."</p>
+                <div style="color: #ff6600; margin-top: 10px;">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <div class="testimonial">
+                <p><strong>Ricardo, 42 anos:</strong></p>
+                <p>"Excelente material educativo. Muito importante seguir todas as orientações de segurança."</p>
+                <div style="color: #ff6600; margin-top: 10px;">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <button class="btn-secondary" onclick="showScreen('final')">PRÓXIMO</button>
+            <button class="btn-secondary" onclick="showScreen('warnings')">VOLTAR</button>
+        </div>
+
+        <!-- Tela Final -->
+        <div class="screen" id="final">
+            <h2 class="section-title">Comece Sua Jornada</h2>
+            
+            <div class="content-card">
+                <h3 style="color: #ff6600; text-align: center; margin-bottom: 20px;">🚀 Transformação Começa Hoje!</h3>
+                <p>Você agora tem todas as informações necessárias para iniciar sua jornada de forma segura e responsável.</p>
+                <br>
+                <p style="text-align: center;"><strong>Lembre-se:</strong></p>
+                <ul style="padding-left: 20px; line-height: 1.6;">
+                    <li>Consulte sempre um médico</li>
+                    <li>Seja consistente mas paciente</li>
+                    <li>Respeite os limites do seu corpo</li>
+                    <li>Foque na saúde geral</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-primary" onclick="showScreen('welcome')">REINICIAR PROGRAMA</button>
+            </div>
+        </div>
+
+        <!-- Navegação -->
+        <nav class="navigation">
+            <div class="nav-item active" onclick="setActiveNav(this); showScreen('welcome')">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+                <span class="nav-text">Início</span>
+            </div>
+            <div class="nav-item" onclick="setActiveNav(this); showScreen('exercises')">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/>
+                </svg>
+                <span class="nav-text">Exercícios</span>
+            </div>
+            <div class="nav-item" onclick="setActiveNav(this); showScreen('results')">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                </svg>
+                <span class="nav-text">Resultados</span>
+            </div>
+            <div class="nav-item" onclick="setActiveNav(this); showScreen('tips')">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/>
+                </svg>
+                <span class="nav-text">Dicas</span>
+            </div>
+            <div class="nav-item" onclick="setActiveNav(this); showScreen('warnings')">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                </svg>
+                <span class="nav-text">Avisos</span>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        let currentScreen = 'welcome';
+        const screens = ['welcome', 'intro', 'anatomy', 'exercises', 'results', 'tips', 'warnings', 'testimonials', 'final'];
+        
+        function showScreen(screenId) {
+            // Hide all screens
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            
+            // Show target screen
+            document.getElementById(screenId).classList.add('active');
+            currentScreen = screenId;
+            
+            // Update progress bar
+            updateProgress();
+        }
+        
+        function updateProgress() {
+            const progress = (screens.indexOf(currentScreen) / (screens.length - 1)) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+        
+        function setActiveNav(element) {
+            // Remove active from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Add active to clicked item
+            element.classList.add('active');
+        }
+        
+        // Initialize progress
+        updateProgress();
+    </script>
+</body>
+</html>
